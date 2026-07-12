@@ -1,0 +1,7 @@
+interface:
+  display_name: "香港留学内容工作流"
+  short_description: "面向香港留学运营的内容参考、中短高密度写作、图文策划、改稿与归档工作流"
+  default_prompt: "Use $hong-kong-study-content when I ask to write, optimize, research, adapt, or save Hong Kong study-abroad content. In this workspace, treat 我想写这篇 + title, 写这篇, 做这个选题, or a bare topic/title as a full content package request by default. Before drafting, inspect comparable high-performing public content when web access is available. Avoid repeated article skeletons, keep publishable copy medium-short but information-dense, use visuals for dense explanation without making the article thin, keep title options unnumbered, and produce a single deliverable only when I explicitly say 只要, 只写, 仅, 单独, 不用, 不要, or name one output file only."
+
+policy:
+  allow_implicit_invocation: true
