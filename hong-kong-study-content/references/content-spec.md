@@ -15,7 +15,15 @@ Use this reference for full Hong Kong study-abroad content packages.
 9. 发布前检查
 10. 文件归档
 
-If the user asks only for one part, output only that part.
+If the operation judgment or final strategy recommends splitting the WeChat article into multiple Xiaohongshu posts, create a compact split execution package when the user confirms the split route:
+
+```text
+小红书拆分执行包/
+├── 01-小红书拆分执行总稿.md
+└── 02-小红书拆分图片prompts合集.md
+```
+
+If the user gives a topic/title without limiting language, produce the full package. If the user asks for a platform only, output that platform's complete asset set, not just copy. "只要公众号" includes `01-公众号文章.md`, `02-公众号图片规划.md`, `03-公众号图片prompts.md`, and `08-发布前检查.md`. "只要小红书" includes `04-小红书文案.md`, `05-小红书图片规划.md`, and `06-小红书图片prompts.md`. Output only one file when the user explicitly names one file/output or excludes images, such as "只要正文", "只要文案", "不要图片", or "不用配图".
 
 ## File Output Structure
 
@@ -34,6 +42,7 @@ Use separate Markdown files for final content and prompts:
 
 ```text
 context/香港受养人签证攻略/
+├── 00-选题运营判断.md
 ├── 01-公众号文章.md
 ├── 02-公众号图片规划.md
 ├── 03-公众号图片prompts.md
@@ -42,12 +51,17 @@ context/香港受养人签证攻略/
 ├── 06-小红书图片prompts.md
 ├── 07-短视频脚本.md
 ├── 08-发布前检查.md
+├── 小红书拆分执行包/
 └── sources.md
 ```
 
 Rules:
 
 - Do not create a `context/` folder for topic planning alone.
+- For full content packages from a topic/title, include `00-选题运营判断.md` before drafting the publishable files.
+- For platform-only requests, create the full platform package: copy plus image planning and image prompts.
+- For true single-file requests, create only the named file.
+- If Xiaohongshu拆分 is confirmed, prefer a compact split execution package with one execution draft file and one consolidated prompt file. Do not create one separate file per split post unless requested.
 - Before creating a new `context/` folder, check for an existing exact or similar topic folder.
 - Create only files that match generated deliverables.
 - Keep publishable copy separate from image prompts.
@@ -119,10 +133,13 @@ Put this in `sources.md` when full-package or writing workflows use web research
 - 参考渠道：
 - 高表现内容常见切入：
 - 重复出现的读者问题：
+- 搜索高频词/SEO 词：
 - 可以借鉴的结构：
 - 需要避免的套路：
+- 本篇主受众：
 - 本篇采用的结构：
 - 适合放进图片的信息：
+- 软性转化方式：
 ```
 
 Do not copy source wording. Use this section to document observed structure and reader demand.
@@ -201,6 +218,8 @@ Recommended visual style:
 - Modern Hong Kong study-abroad advisory brand.
 - Choose a background and color system that fits the topic and platform; do not force a white background.
 - Keep all images in the same article package visually unified: same illustration style, color system, icon language, and layout logic.
+- Keep the account visually recognizable across posts through typography discipline, information density, restrained icons, and Hong Kong study-abroad subject matter; do not rely on one repeated palette as the only brand signal.
+- For Xiaohongshu and multi-post packages, vary color systems and layout families across different posts so the profile grid does not look like one template repeated.
 - Minimal line icons, subtle map or skyline references only when useful.
 - No cartoonish characters unless requested.
 - No fake official logos, no university logos unless user provides permission/assets.
@@ -254,16 +273,89 @@ Prompt clarity rules:
 小红书图片规则：
 
 - 根据内容判断图片数量，不固定张数。
-- 优先考虑轮播阅读逻辑：封面、核心结论、流程/清单、对比、误区、行动建议。
+- 不要把每篇都做成固定三张：封面 + 表格/任务卡 + 官方截图。这个结构只能在内容确实需要时使用。
+- 按内容任务决定轮播长度：观点/争议类可 1-2 张，清单/对比类常用 3-5 张，流程/时间线/预算/申请规划类可 5-7 张。少图但有点击力，比硬凑图更好。
+- 轮播角色按需选择：封面、核心判断、流程、清单、对比、误区、案例、决策卡、时间线、预算表、行动卡、官方依据。不是每篇都要覆盖所有角色。
+- 官方截图不是固定第 3 张。只有政策、费用、排名、签证、项目要求等需要增强信任时才加入；如果截图本身不好读，把官方链接放正文、评论引导或 `sources.md`，不要为了统一格式硬放图。
+- 图片规划必须写明“建议图片数”和原因，尤其说明为什么不是固定三张。
 - 每张图都要有明确保存价值，不要为了凑图而加图。
 - 小红书图片可以和公众号图片不同，但同一篇小红书笔记内必须统一风格。
+- 单篇轮播内部要统一；不同小红书笔记之间要有可见差异。不要让连续多篇都使用同一套暖白底、深蓝/深绿标题、金色/港铁红点缀。
+- 生成小红书图片规划或 prompt 时，必须先写出本篇的「视觉家族」：色彩方向、版式方向、图形语言、与近期内容的差异点。
+- 多篇合集或拆分包中，每篇都要分配不同的视觉家族；最多只能保留一个共同品牌锚点，例如字体气质、信息图密度、细线图标、页脚小标签，不能把主色、背景色、卡片样式也全部固定。
 - 小红书每张图的建议比例必须写入对应英文 prompt，例如 `aspect ratio 3:4 vertical Xiaohongshu carousel image`。
+
+小红书正文与链接规则：
+
+- 如果图片规划、素材清单或 `sources.md` 列出了官方链接，正文里也要出现对应的官网核对句或 Markdown 链接，不能只把链接放在素材区。
+- 小红书正文要根据选题选择结构，不要批量复用同一套 "开头问题 -> 列点 -> 总结 -> 评论区 CTA"。同一批内容里应混合使用场景切入、误区切入、判断卡、对比、时间线、预算拆解、官方依据提醒、评论互动等结构。
+- 小红书标题、开头、封面文字、正文和标签应自然植入 2-5 个搜索词；不堆词，不牺牲口语感。
+- 每篇只使用一个柔和咨询引导，不要每篇都用同一句评论区 CTA。
+
+## Xiaohongshu Visual Diversity System
+
+Use this system whenever creating Xiaohongshu image plans, prompts, split execution packages, or batches of posts.
+
+Brand commonality should come from:
+
+- Clear Chinese editorial typography.
+- High information density but not crowded.
+- Real advisory judgment, not decorative mood boards.
+- Restrained icon style and clean hierarchy.
+- Hong Kong study-abroad context shown through useful symbols only: timeline, checklist, map contour, skyline, application folder, visa/work path, budget sheet, decision matrix.
+
+Post-to-post variety should come from:
+
+- Different color families.
+- Different cover composition.
+- Different information layout.
+- Different visual metaphor matched to the topic.
+- Different emphasis mood: assessment, warning, route, budget, family, decision, timeline, comparison.
+
+Recommended visual families to rotate:
+
+| Visual family | Suitable topics | Color direction | Layout direction |
+|---|---|---|---|
+| Assessment sheet | 背景评估、低 GPA、选校定位 | mist blue + charcoal + soft lime accent | form sheet, scoring grid, diagnostic cards |
+| Policy pathway | IANG、签证、身份、流程 | teal green + porcelain white + restrained red | route map, timeline, document flow |
+| Warning memo | 避坑、误区、申请风险 | muted coral + graphite + pale gray | memo board, warning strips, mistake/fix pairs |
+| Budget ledger | 学费、生活费、奖学金、成本回报 | muted amber + ink gray + off-white | ledger table, receipt cards, calculator blocks |
+| Decision board | 一年制值不值、适合谁、去不去香港 | lavender gray + deep plum + cream | decision cards, pros/cons board, fit matrix |
+| Application calendar | 申请季、时间线、deadline | steel blue + fresh green + white | calendar grid, milestone timeline, progress tracker |
+| Family planning | 家长、受养人、陪读、家庭预算 | warm clay + sage green + ivory | family plan map, condition checklist, household cards |
+| Comparison desk | 港校/英澳/新加坡、专业选择 | black ink + sky blue + light sand | split-screen comparison, matrix, side-by-side cards |
+| Evidence file | 官方信息、材料清单、申请文件 | slate gray + paper white + tab colors | folder tabs, document stack, checklist file |
+| Career map | 留港就业、IANG 后续、行业路径 | petrol blue + mint + signal orange | career path map, subway-line path, milestone cards |
+
+Rules:
+
+- Choose one visual family per Xiaohongshu note and state it before the prompts.
+- Within one carousel, keep the chosen visual family consistent.
+- Across a batch, do not repeat the same visual family or same dominant palette in adjacent posts unless the user explicitly asks for a series look.
+- Avoid more than two posts in one batch using warm ivory/off-white as the dominant background.
+- Avoid making navy/deep green + gold + Hong Kong red the default palette. Use it only when it is the best fit for the topic.
+- Layout can repeat occasionally, but if layout repeats, color and visual metaphor should change. If color is similar, layout must change clearly.
+- Do not make the profile grid look chaotic: use similar typography weight, clean margins, restrained icons, and concise Chinese text as the common system.
+- Add negative prompt instructions such as: "do not reuse the same warm ivory navy gold Hong Kong red palette from previous posts; avoid generic template look; avoid identical card grid composition unless specified."
 
 ## 小红书图片 Prompt
 
 For each Xiaohongshu image, output:
 
 ```markdown
+本篇视觉家族：
+- 色彩方向：
+- 版式方向：
+- 图形语言：
+- 与近期内容的差异点：
+
+本篇图文策略：
+- 主受众：
+- 结构节奏：
+- 建议图片数及原因：
+- 搜索词植入：
+- 软性转化 cue：
+
 ### 小红书图 1：图片名称
 
 图片角色：
@@ -327,6 +419,12 @@ Short video rules:
 - 图片比例：
 - 图片顺序：
 - 图片 Prompt 清晰度：
+- 小红书主页视觉多样性：
+- 受众匹配：
+- SEO 埋词：
+- 软性转化：
+- 官方链接是否进入正文：
+- 是否避免固定三图模板：
 - 仍需人工确认：
 ```
 
