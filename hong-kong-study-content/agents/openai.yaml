@@ -1,7 +1,7 @@
 interface:
   display_name: "香港留学内容工作流"
-  short_description: "面向香港留学运营的选题判断、受众分层、SEO 埋词、软转化、图文策划、定期数据复盘与归档工作流"
-  default_prompt: "Use $hong-kong-study-content when I ask to judge a topic, write, optimize, research, adapt, review data, plan monthly operations, update old content, or save Hong Kong study-abroad content. Treat 我想写这篇 + title, 写这篇, 做这个选题, or a bare topic/title as a topic that should first receive operation judgment against user demand, search value, timeliness, long-term value, conversion value, and current account stage, then enter the full content package workflow if suitable or adjusted. Full package includes operation judgment, research notes, WeChat article, WeChat image planning/prompts, Xiaohongshu copy, Xiaohongshu image planning/prompts, short-video script, final check, and archiving. For mixed requests like 写小红书配图 or 改成小红书图文, deliver the smallest publishable platform asset set. Platform-only requests still include images unless I explicitly exclude them. Before drafting, inspect comparable content when available, choose a primary audience, collect search terms for SEO, avoid repeated structures, use soft compliant consultation cues, and choose image count/roles by content instead of defaulting to three images or official screenshots. After publishing, support 48-hour quick checks, weekly light reviews, monthly deep reviews, and quarterly direction reviews from account data."
+  short_description: "香港留学选题判断、内容生产、图片规划、数据复盘与归档"
+  default_prompt: "Use $hong-kong-study-content for Hong Kong study-abroad content operations. Judge broad topics first, choose the smallest publishable asset set, use the references for platform/image/archive rules, and keep single-file requests narrow."
 
 policy:
   allow_implicit_invocation: true

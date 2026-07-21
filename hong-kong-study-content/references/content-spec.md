@@ -1,5 +1,21 @@
 # Content Package Specification
 
+## Table of Contents
+
+- Full Output Order
+- File Output Structure
+- WeChat Article Template
+- WeChat Structure Rules
+- Content Reference Notes Template
+- Image Plan Template
+- Image Prompt Template
+- Xiaohongshu Conversion Template
+- Xiaohongshu Image Planning
+- Xiaohongshu Visual Diversity System
+- Xiaohongshu Image Prompt
+- Short Video Template
+- Publication Check Template
+
 Use this reference for full Hong Kong study-abroad content packages.
 
 ## Full Output Order
